@@ -1,1 +1,23 @@
+extends layout
+
+block content
+  h2 Hello, #{username}!
+  p Viewing: #{filter === 'mine' ? 'Your Videos' : 'All Videos'}
+
+  .d-flex.gap-3.mb-4
+    a.btn.btn-outline-primary(href="/video/dashboard/all") View All Videos
+    a.btn.btn-outline-primary(href="/video/dashboard/mine") View My Videos
+    a.btn.btn-success(href="/video/new_video") + Upload New
+    a.btn.btn-danger(href="/logout") Logout
+
+  if videos.length
+    ul.list-group
+      each video in videos
+        li.list-group-item
+          strong= video.title
+          br
+          a(href=video.url target="_blank")= video.url
+          small.text-muted(d-block)= `Posted by ${video.author}`
+  else
+    p.text-muted No videos to show.
 
