@@ -1,1 +1,20 @@
+extends layout
+
+block content
+  h2 Login
+
+  if error
+    .alert.alert-danger= error
+
+  form(method="POST", action="/login")
+    .mb-3
+      label(for="username") Username
+      input#username.form-control(type="text", name="username", required)
+
+    .mb-3
+      label(for="password") Password
+      input#password.form-control(type="password", name="password", required)
+
+    button.btn.btn-primary(type="submit") Login
+    a.btn.btn-link(href="/register") Register instead
 
