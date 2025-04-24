@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h2 Upload New YouTube Short
+
+  form(method="POST", action="/video/new")
+    .mb-3
+      label(for="title") Title
+      input#title.form-control(type="text", name="title", required)
+
+    .mb-3
+      label(for="url") YouTube URL
+      input#url.form-control(type="url", name="url", required)
+
+    button.btn.btn-primary(type="submit") Submit
+    a.btn.btn-secondary.ms-2(href="/video/dashboard/mine") Cancel
